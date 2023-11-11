@@ -40,7 +40,7 @@ FROM alpine:latest
 COPY --from=builder /app/app /app
 
 # ポート8080をエクスポート
-EXPOSE 8080
+EXPOSE 8050
 
 # アプリケーションを実行
 CMD ["/app"]
