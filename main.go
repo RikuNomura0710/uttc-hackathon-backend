@@ -66,7 +66,7 @@ func main() {
     // dbUser := os.Getenv("DB_USER")
     // dbPass := os.Getenv("DB_PASSWORD")
     // dbName := os.Getenv("DB_NAME")
-    dbUser := "root"
+    dbUser := "uttc"
     dbPass := "uttc"
     dbName := "hakcathon"
     dbSocketDir := "/cloudsql/mindful-primer-399308:us-central1:uttc"
