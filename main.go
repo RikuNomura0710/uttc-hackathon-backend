@@ -129,6 +129,10 @@ func main() {
 	//READ CRUD create read update delete
 
 	r := gin.Default()
+    r.GET("/", func(c *gin.Context) {
+        c.String(200, "Hello, World!")
+    })
+
 	r.Use(cors.New(cors.Config{
         AllowOrigins:     []string{"*"},  // 全てのオリジンからのアクセスを許可
         AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
@@ -300,7 +304,8 @@ func main() {
 		c.JSON(200, gin.H{"message": "Post deleted successfully!"})
 	})
 	
-	r.Run(":" + os.Getenv("PORT"))
+	// r.Run(":" + os.Getenv("PORT"))
+    r.Run(":8080")
 
 }
 
