@@ -68,10 +68,10 @@ func main() {
     // dbName := os.Getenv("DB_NAME")
     dbUser := "uttc"
     dbPass := "uttc"
-    dbName := "hakcathon"
+    dbName := "hackathon"
     dbSocketDir := "/cloudsql/mindful-primer-399308:us-central1:uttc"
     // instanceConnectionName := os.Getenv("DB_HOST")  
-    dsn := fmt.Sprintf("%s:%s@unix(/%s)/%s?parseTime=true", dbUser, dbPass, dbSocketDir, dbName)
+    dsn := fmt.Sprintf("%s:%s@unix(%s)/%s?parseTime=true", dbUser, dbPass, dbSocketDir, dbName)
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
