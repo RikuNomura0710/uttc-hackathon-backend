@@ -304,8 +304,9 @@ func main() {
 		c.JSON(200, gin.H{"message": "Post deleted successfully!"})
 	})
 	
-	// r.Run(":" + os.Getenv("PORT"))
-    r.Run(":8080")
+	r.Run(":" + os.Getenv("PORT"))
+    log.Println("Server started on port " + os.Getenv("PORT"))
+    // r.Run(":8080")
 
 }
 
