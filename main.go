@@ -65,9 +65,12 @@ type Post struct {
 func main() {
     dbUser := os.Getenv("DB_USER")
     dbPass := os.Getenv("DB_PASSWORD")
-    dbHost := os.Getenv("DB_HOST")
+    // dbHost := os.Getenv("DB_HOST")
     dbName := os.Getenv("DB_NAME")
-    dsn := fmt.Sprintf("%s:%s@%s/%s", dbUser, dbPass, dbHost, dbName)
+    dbSocketDir := "/cloudsql"
+    instanceConnectionName := os.Getenv("DB_HOST")  
+    dsn := fmt.Sprintf("%s:%s@unix(%s/%s)/%s", dbUser, dbPass, dbSocketDir, instanceConnectionName, dbName)
+    // dsn := fmt.Sprintf("%s:%s@%s/%s", dbUser, dbPass, dbHost, dbName)
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
